@@ -1,5 +1,5 @@
 'use strict';
-// agregando comentario
+// agregando comentario parte 2
 
 class customizeEachInput{
     constructor(){
