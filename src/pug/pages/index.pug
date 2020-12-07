@@ -1,4 +1,8 @@
 extends ../layouts/col-1/col-1.pug
+include ../mixins/_input.pug
+include ../mixins/_select.pug
+include ../mixins/_radio_checks.pug
+include ../mixins/_textarea.pug
 block vars
   - levelAssets = "";
   - pageName = "Index";
@@ -9,47 +13,94 @@ block slot-1
       form(action="")
         fieldset
           .clearBoth
-            label(for="text") Name
-            input.customizeInput(type="text" name="text" id="text" value="")
+            +_input({
+              name: "Nombre",
+              id:"id1",
+              labelText: "Name <strong>prueba sd</strong>",
+              class:"customizeInput",
+              type:"text",
+              value:""
+            })
+          
+           
           .clearBoth
-            label(for="texta") NameA
-            input(type="text" name="texta" id="texta")
+            +_input({
+                name: "name_a",
+                id:"id1",
+                labelText: "Name",
+                class:"",
+                type:"text",
+                value:""
+              })
+            //- label(for="texta") NameA
+            //- input(type="text" name="texta" id="texta")
         fieldset
           .clearBoth
-            select.especialSelect.slk(name="select" data-arrow-classes="fa fa-sort-down")
+            +_select({
+                name: "select",
+                id:"id2",
+                class:"especialSelect slk",
+                arrowClass:"fa fa-sort-down"
+              })
               option(value="") Selecciona
               option(value="1") 1
               option(value="2") 2
               option(value="3") 3
+
           .clearBoth
-            select.espSel(name="select2")
+            +_select({
+                name: "select2",
+                id:"id3",
+                class:"espSel",
+                arrowClass:""
+              })
               option(value="") Selecciona 2
-              option(value="12") 12
-              option(value="23") 23
-              option(value="34") 34
-          .clearBoth
-            select.noSelected(name="select2")
-              option(value="") Selecciona
-              option(value="1") 1
-              option(value="2") 2
-              option(value="3") 3º
+              option(value="1") w1
+              option(value="2") 2s
+              option(value="3") 32
+              
         fieldset
           .clearBoth
-            label(for="check") ejemplo de checkbox
-            input(type="checkbox" name="check" id="check")
+            +_radio_check({
+                name: "check",
+                id:"check",
+                text: "ejemplo de checkbox <a href='#' class='strong'>link</a>",
+                class:"espSel",
+                type:"checkbox"
+              })
           .clearBoth
-            label(for="radios") ejemplo de radio
-            input(type="radio" name="radios" id="radios")
+            +_radio_check({
+                name: "radio1",
+                id:"radios",
+                text: "ejemplo de radio <a href='#' class='strong'>link</a>",
+                class:"",
+                type:"radio"
+              })
           .clearBoth
-            label(for="radios2") ejemplo de radio 2
-            input(type="radio" name="radios" id="radios2")
+            +_radio_check({
+              name: "radio1",
+              id:"radios2",
+              text: "ejemplo de radio2 <a href='#' class='strong'>link</a>",
+              class:"",
+              type:"radio"
+            })
+         
           .clearBoth
-            label(for="radiosv") ejemplo de radiov
-            input.noSelected(type="radio" name="radiosv" id="radiosv")
+            +_radio_check({
+              name: "radio12",
+              id:"radiosv",
+              text: "ejemplo de radio2 sin formato <a href='#' class='strong'>link</a>",
+              class:"noSelected",
+              type:"radio"
+            })
         fieldset
           .clearBoth
-            label(for="txt") ejemplo de textarea
-            textarea.customizeInput(id="txt" name="txt", cols="30", rows="10")
+            +_textarea({
+              name: "txt",
+              id:"txt_area",
+              text: "ejemplo de textarea <strong> laosj </strong>",
+              class:"customizeInput",
+            })
         
   append script
     script(src=resourceLocator+"js/customInputs.js")

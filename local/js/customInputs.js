@@ -1,4 +1,5 @@
 'use strict';
+// agregando comentario parte 2
 
 class customizeEachInput{
     constructor(){
@@ -21,10 +22,12 @@ class customizeEachInput{
                     ulElement = document.createElement('ul'),
                     wrapElement = document.createElement('div'),
                     inputElement = '',
+                    elementId = item.getAttribute('id'),
                     arrowClasses = item.getAttribute('data-arrow-classes') || '',
                     actualClasses = item.getAttribute("class").split(' ');
                     wrapElement.classList.add("CE-select__select", `${(args[1])? 'CE-select__item--float' : false}` ,...actualClasses);
                     wrapElement.setAttribute("tabindex",'0')
+                    wrapElement.setAttribute("id",elementId)
 
                 // se crean los options en una lista
                 Array.from(item.getElementsByTagName('option')).forEach((el) => {
@@ -70,7 +73,7 @@ class customizeEachInput{
 
                     var idElement = item.getAttribute('id'),
                         labelElement = document.querySelector('[for="'+idElement+'"]'),
-                        labelText = labelElement.textContent,
+                        labelText = labelElement.innerHTML,
                         checkElement = '';
                         item.classList.add('CE__element--d-none');
 
