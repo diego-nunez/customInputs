@@ -16,7 +16,7 @@ class customizeEachInput{
         for(var item of allSelectElements){
             // si no contiene la clase que excluye los items a crear
             if(!item.classList.contains((args[0] != '')? args[0] : '')){
-                
+                console.log(args[1]);
                 var option = '',
                     selectName = item.getAttribute('name'),
                     ulElement = document.createElement('ul'),

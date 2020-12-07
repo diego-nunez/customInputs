@@ -55,9 +55,9 @@ block slot-1
                 arrowClass:""
               })
               option(value="") Selecciona 2
-              option(value="1") w1
-              option(value="2") 2s
-              option(value="3") 32
+              option(value="w1") w1
+              option(value="2s") 2s
+              option(value="32") 32
               
         fieldset
           .clearBoth
@@ -103,5 +103,6 @@ block slot-1
             })
         
   append script
-    script(src=resourceLocator+"js/customInputs.js")
-    script(src=resourceLocator+"js/ejemplo.js")
+    //- script(src=resourceLocator+"js/customInputs.js")
+    //- script(src=resourceLocator+"js/ejemplo.js" type="module")
+    script(src=resourceLocator+"js/ejemplo.js" type="module")
