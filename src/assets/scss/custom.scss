@@ -1,3 +1,7 @@
 // // @import 'vendors/bootstrap';
-@import 'utils/_general';
-@import 'utils/_inputsCustomize';
+//@import 'utils/_general';
+@import 'components/general_items';
+@import 'components/inputsGeneral';
+@import 'components/radio_checkbox';
+@import 'components/select';
+// @import 'utils/general'

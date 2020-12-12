@@ -1,57 +1,82 @@
 .CE-check{
-    &__checkbox{
+    &__checkbox, &__radio{
         display: inline-block;
-        width: 18px;
-        height: 18px;
         vertical-align: middle;
-        margin-right: 10px;
         position: relative;
-        border: 1px solid;
     }
     &__radio{
         display: inline-block;
-        width: 18px;
-        height: 18px;
         vertical-align: middle;
         margin-right: 10px;
         position: relative;
-        border: 1px solid;
-        border-radius: 50%;
     }
     &__label{
         display: inline-block;
         vertical-align: middle;
     }
     input:checked{
-        &+.CE-check__checkbox{
+        &+.CE-check__checkbox, +.CE-check__radio{
             &::before{
                 content: ' ';
                 display: block;
-                background: blue;
-                width: 12px;
-                height: 12px;
                 position: absolute;
                 transform: translate(-50%,-50%);
                 left: 50%;
                 top: 50%;
-            }
-            
-        }
-        +.CE-check__radio{
-            &::before{
-                content: ' ';
-                display: block;
-                background: blue;
-                width: 12px;
-                height: 12px;
-                position: absolute;
-                transform: translate(-50%,-50%);
-                left: 50%;
-                top: 50%;
-                border-radius: 50%;
             }
             
         }
     }
     
+}
+
+@mixin check-styles($type, $elementStyles, $checkedStyles) {
+    .CE-check{
+
+        .CE-check__#{$type}{
+            
+            @each $name, $style in $elementStyles {
+                    #{$name}: #{$style};
+              }
+        }
+        input:checked{
+            &+.CE-check__#{$type}{
+                &::before{
+                    @each $nameC, $styleC in $checkedStyles {
+                        #{$nameC}: #{$styleC};  
+                    }
+                }
+            }
+        }
+    }
+}
+
+$radio-styles: (
+    "border" : 2px solid red,
+    "width": 18px,
+    "height":18px,
+    "margin": 0 0 0 10px,
+    "border-radius": 50%
+);
+$checkbox-styles: (
+    "border" : 2px solid purple,
+    "width": 18px,
+    "height":18px,
+    "margin": 0 0 0 10px
+);
+$radio-checked-styles:(
+    "background": yellow,
+    "width": 12px,
+    "height": 12px,
+    "border-radius": 50%
+);
+$checkbox-checked-styles:(
+    "background": orange,
+    "width": 12px,
+    "height": 12px
+);
+
+form{
+    @include check-styles("radio",$radio-styles, $radio-checked-styles);
+    @include check-styles("checkbox", $checkbox-styles, $checkbox-checked-styles);
 }
