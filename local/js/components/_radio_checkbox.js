@@ -16,7 +16,7 @@ export function radio_checkbox(param) {
                             labelElement = document.querySelector('[for="'+idElement+'"]'),
                             labelText = labelElement.innerHTML,
                             checkElement = '';
-                            item.classList.add('CE__element--d-none');
+                            item.classList.add('CE-check__element--d-none');
 
                             //se crea la estructura custom
                             checkElement = `<span class="CE-check__element CE-check__${item.getAttribute('type')}"></span>

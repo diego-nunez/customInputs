@@ -14,6 +14,9 @@
         display: inline-block;
         vertical-align: middle;
     }
+    &__element--d-none{
+        display: none;
+    }
     input:checked{
         &+.CE-check__checkbox, +.CE-check__radio{
             &::before{

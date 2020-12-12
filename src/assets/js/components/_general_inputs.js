@@ -44,13 +44,22 @@ export function general_inputs(param) {
     } 
     class floatLabelFunctionalities{
         floatLabelFunctionality(element){
-            element.addEventListener('click', (e) => {
-                // function para activar el float label
+            var labelElement = element.querySelector('label'); 
+            console.log(labelElement);
+            labelElement.onclick = function(e){
                 var that = e.target;
-                if(that.tagName == 'LABEL' && !that.classList.contains('CE-item__label--active')){
-                    that.classList.add('CE-item__label--active');
+                console.log('click',that.tagName);
+                if(!that.classList.contains('CE-item__label--active')){
+                    labelElement.classList.add('CE-item__label--active');
                 }
-            })
+            }
+            // element.addEventListener('click', (e) => {
+            //     // function para activar el float label
+            //     var that = e.target;
+            //     if(that.tagName == 'LABEL' && !that.classList.contains('CE-item__label--active')){
+            //         that.classList.add('CE-item__label--active');
+            //     }
+            // })
             //'CE-item__input--float'
             element.getElementsByClassName('CE-item__input--float')[0].addEventListener('focusout', (e) => {
                 // function para desactivar el float label
