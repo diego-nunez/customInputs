@@ -127,14 +127,7 @@ form .CE-check input:checked + .CE-check__checkbox::before {
   height: 12px;
 }
 
-.CE-select__label {
-  display: inline-block;
-  width: 90%;
-  padding: 0 10px;
-  min-height: 23px;
-}
-
-.CE-select__label--result {
+.CE-select__label, .CE-select__label--result {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -142,8 +135,10 @@ form .CE-check input:checked + .CE-check__checkbox::before {
   -ms-flex-align: center;
   align-items: center;
   width: 90%;
+}
+
+.CE-select__label--result {
   padding: 2px 10px 0;
-  min-height: 23px;
 }
 
 .CE-select__arrow {
@@ -155,10 +150,11 @@ form .CE-check input:checked + .CE-check__checkbox::before {
 .CE-select__select {
   border: 1px solid;
   display: block;
-  max-width: 250px;
   width: 100%;
   overflow: hidden;
   border-radius: 4px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .CE-select__select * {
@@ -170,7 +166,6 @@ form .CE-check input:checked + .CE-check__checkbox::before {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  max-width: 250px;
   position: relative;
 }
 
@@ -220,12 +215,6 @@ form .CE-check input:checked + .CE-check__checkbox::before {
   transition: all 0.15s ease-in;
   padding: 1px 10px 0;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 
 .CE-select__float--active .CE-select__label--float {
